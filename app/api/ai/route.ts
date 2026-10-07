@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { supplierEvidenceCase } from "@/data/evidence-case";
-import { SIMULATED_AI_DRAFT, type AiDraftResponse } from "@/lib/ai";
+import { isDraftGrounded, SIMULATED_AI_DRAFT, type AiDraftResponse } from "@/lib/ai";
 
 type OpenAIResponse = {
   output?: Array<{
@@ -52,7 +52,7 @@ export async function POST() {
       .join("\n")
       .trim();
 
-    if (!draft) return fallbackResponse();
+    if (!draft || !isDraftGrounded(draft)) return fallbackResponse();
 
     return NextResponse.json<AiDraftResponse>({ draft, source: "openai" });
   } catch {
