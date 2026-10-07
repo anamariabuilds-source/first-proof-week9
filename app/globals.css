@@ -42,3 +42,12 @@ textarea {
 ::selection {
   background: #cce7df;
 }
+
+.label {
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.11em;
+  line-height: 1rem;
+  text-transform: uppercase;
+  color: #66716c;
+}

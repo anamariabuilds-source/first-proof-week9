@@ -3,10 +3,10 @@ import type { EvidenceCase } from "@/types/evidence";
 type TaskScreenProps = {
   evidenceCase: EvidenceCase;
   onRequestDraft: () => void;
-  draftRequested: boolean;
+  loading: boolean;
 };
 
-export function TaskScreen({ evidenceCase, onRequestDraft, draftRequested }: TaskScreenProps) {
+export function TaskScreen({ evidenceCase, onRequestDraft, loading }: TaskScreenProps) {
   return (
     <section className="grid gap-5 lg:grid-cols-[1.35fr_0.65fr] lg:gap-6">
       <div className="overflow-hidden rounded-3xl border border-line bg-white shadow-card">
@@ -52,17 +52,13 @@ export function TaskScreen({ evidenceCase, onRequestDraft, draftRequested }: Tas
           <button
             type="button"
             onClick={onRequestDraft}
-            disabled={draftRequested}
+            disabled={loading}
             className="mt-7 inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-xl bg-ink px-5 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-ink-soft focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal disabled:cursor-default disabled:bg-teal sm:w-auto"
           >
-            {draftRequested ? "Draft requested" : "Ask AI for a draft"}
+            {loading ? "Preparing draft…" : "Ask AI for a draft"}
             <span aria-hidden="true">→</span>
           </button>
-          {draftRequested && (
-            <p role="status" className="mt-3 text-sm text-teal-dark">
-              Request received. The simulated assistant is preparing the next step.
-            </p>
-          )}
+          <span className="sr-only" role="status" aria-live="polite">{loading ? "Preparing simulated AI draft" : ""}</span>
         </div>
       </div>
 
