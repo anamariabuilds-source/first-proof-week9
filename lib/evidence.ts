@@ -2,28 +2,31 @@ import type { EvidenceCase, EvidenceRecord, ParticipantAction } from "@/types/ev
 
 const actionDetails: Record<
   ParticipantAction,
-  Pick<EvidenceRecord, "participantActionLabel" | "gapRecognized" | "humanDependencyUsed" | "resultingAction" | "supportsClaim">
+  Pick<EvidenceRecord, "participantActionLabel" | "actionPaused" | "actionEscalated" | "humanDependencyUsed" | "resultingAction" | "supportsClaim">
 > = {
   continue: {
     participantActionLabel: "Continued with current information",
-    gapRecognized: false,
+    actionPaused: false,
+    actionEscalated: false,
     humanDependencyUsed: false,
     resultingAction: "The original AI-assisted recommendation was carried forward without revision.",
-    supportsClaim: "In this task, the participant continued without recognizing that critical information was missing before acting.",
+    supportsClaim: "In this task, the participant continued with the AI-assisted recommendation despite missing delivery lead-time information. The selected action did not pause or escalate to resolve that gap.",
   },
   flag_missing_information: {
     participantActionLabel: "Flagged missing information",
-    gapRecognized: true,
+    actionPaused: true,
+    actionEscalated: false,
     humanDependencyUsed: false,
     resultingAction: "The recommendation was paused pending confirmation of the missing delivery lead time.",
-    supportsClaim: "In this task, the participant recognized that critical information was missing before acting.",
+    supportsClaim: "In this task, the participant paused the AI-assisted recommendation and explicitly flagged missing delivery lead-time information.",
   },
   ask_human: {
     participantActionLabel: "Asked the purchasing manager for clarification",
-    gapRecognized: true,
+    actionPaused: true,
+    actionEscalated: true,
     humanDependencyUsed: true,
     resultingAction: "The recommendation was paused and a clarification request was directed to the purchasing manager.",
-    supportsClaim: "In this task, the participant recognized that critical information was missing before acting and used the named human dependency.",
+    supportsClaim: "In this task, the participant paused the AI-assisted recommendation and escalated the missing delivery lead-time information to the purchasing manager.",
   },
 };
 
@@ -54,7 +57,8 @@ export function createEvidenceRecord({
     criticalMissingInformation: evidenceCase.criticalMissingField.label,
     participantAction,
     participantActionLabel: details.participantActionLabel,
-    gapRecognized: details.gapRecognized,
+    actionPaused: details.actionPaused,
+    actionEscalated: details.actionEscalated,
     humanDependencyUsed: details.humanDependencyUsed,
     humanDependency: details.humanDependencyUsed ? evidenceCase.expectedHumanDependency : null,
     explanation,

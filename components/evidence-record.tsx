@@ -53,7 +53,8 @@ export function EvidenceRecord({ record, onReset }: { record: EvidenceRecordType
               <p className="label">Observed response</p>
               <dl className="mt-4 space-y-4">
                 <div className="flex items-start justify-between gap-4"><dt className="text-sm text-muted">AI assistance used</dt><dd><BooleanMark value={record.aiAssistanceUsed} /></dd></div>
-                <div className="flex items-start justify-between gap-4"><dt className="text-sm text-muted">Gap recognized</dt><dd><BooleanMark value={record.gapRecognized} /></dd></div>
+                <div className="flex items-start justify-between gap-4"><dt className="text-sm text-muted">Action paused</dt><dd><BooleanMark value={record.actionPaused} /></dd></div>
+                <div className="flex items-start justify-between gap-4"><dt className="text-sm text-muted">Action escalated</dt><dd><BooleanMark value={record.actionEscalated} /></dd></div>
                 <div className="flex items-start justify-between gap-4"><dt className="text-sm text-muted">Human dependency used</dt><dd><BooleanMark value={record.humanDependencyUsed} /></dd></div>
               </dl>
               <div className="mt-5 border-t border-line pt-4">

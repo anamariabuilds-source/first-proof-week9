@@ -5,11 +5,13 @@
 - Production build: passed
 - Lint: passed
 - Production dependency audit: 0 vulnerabilities
-- Deterministic action mapping: passed for all three actions
+- Deterministic action mapping: passed for pause, escalation, and human-dependency fields across all three actions
 - Optional, valid, overlong, and invalid explanation input: passed
 - Simulated fallback contains no invented delivery information: passed
 - AI grounding guard rejects delivery claims and unsupported numeric claims: passed
 - Evidence limitations include job-readiness, general-performance, repeatability, and overall-AI-skill boundaries: passed
+- Awareness is not inferred from the selected action; `gapRecognized` is absent from the model and UI: passed
+- Participant explanation is preserved and displayed without interpretation: passed
 
 ## Real issue found and fixed
 

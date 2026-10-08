@@ -3,7 +3,7 @@
 ## Product boundaries
 
 - The prototype contains one bounded, one-time simulated supplier exercise.
-- It records one observable behavior: whether critical missing information was recognized before acting.
+- It records observable task behavior: the selected action, whether it paused or escalated, and whether a named human dependency was used.
 - The evidence record is not a competence score or hiring recommendation.
 - No authentication, persistence, payment, marketplace, or production-work workflow is included.
 
@@ -28,3 +28,11 @@ Run the app, complete a fresh-chat persona test as Mariana, and capture clean sc
 - Mechanical testing found that API output needed a deterministic grounding guard; unsupported operational terms or numeric claims now trigger the reviewed fallback.
 - To reduce the risk that a novice participant equates polished language with sufficient evidence, the AI screen now includes a neutral pause cue. It does not reveal the missing field.
 - The evidence screen leads with “One observed task. One bounded claim” and gives the non-inference section high-contrast treatment to reduce overgeneralization.
+
+## Persona Test finding and fix
+
+- Finding: Mariana noticed that delivery information was missing but selected “Continue” because she believed it could be verified later. The record incorrectly translated that action into “Gap recognized: No.”
+- Previous overclaim: “In this task, the participant continued without recognizing that critical information was missing before acting.” This inferred an internal mental state that the task did not directly capture.
+- Fix: removed `gapRecognized` from the evidence model and UI. The record now reports only whether the selected action paused, escalated, and used a human dependency.
+- Continue wording: “In this task, the participant continued with the AI-assisted recommendation despite missing delivery lead-time information. The selected action did not pause or escalate to resolve that gap.”
+- The participant’s optional explanation remains visible under the neutral label “Participant explanation” and is neither interpreted nor scored.

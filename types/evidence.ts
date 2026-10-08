@@ -27,7 +27,8 @@ export type EvidenceRecord = {
   criticalMissingInformation: string;
   participantAction: ParticipantAction;
   participantActionLabel: string;
-  gapRecognized: boolean;
+  actionPaused: boolean;
+  actionEscalated: boolean;
   humanDependencyUsed: boolean;
   humanDependency: string | null;
   explanation?: string;
