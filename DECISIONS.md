@@ -22,3 +22,9 @@
 ## Tomorrow's first move
 
 Run the app, complete a fresh-chat persona test as Mariana, and capture clean screenshots of all four states.
+
+## Mechanical and persona-preparation notes
+
+- Mechanical testing found that API output needed a deterministic grounding guard; unsupported operational terms or numeric claims now trigger the reviewed fallback.
+- To reduce the risk that a novice participant equates polished language with sufficient evidence, the AI screen now includes a neutral pause cue. It does not reveal the missing field.
+- The evidence screen leads with “One observed task. One bounded claim” and gives the non-inference section high-contrast treatment to reduce overgeneralization.

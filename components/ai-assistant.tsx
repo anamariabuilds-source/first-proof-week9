@@ -42,6 +42,16 @@ export function AiAssistant({ response, onContinue, onBack }: AiAssistantProps) 
             </div>
           </div>
 
+          <div className="mt-4 flex gap-3 rounded-2xl border border-blue/20 bg-blue-soft/60 p-4 sm:p-5">
+            <div className="grid size-8 shrink-0 place-items-center rounded-lg bg-white text-sm font-bold text-blue" aria-hidden="true">i</div>
+            <div>
+              <p className="text-sm font-semibold text-ink">Pause before deciding</p>
+              <p className="mt-1 text-sm leading-6 text-muted">
+                A polished draft can sound complete. Base your decision on whether the information provided supports action—not on the confidence of the writing.
+              </p>
+            </div>
+          </div>
+
           <div className="mt-6 flex flex-col-reverse gap-3 sm:flex-row sm:justify-between">
             <button type="button" onClick={onBack} className="min-h-12 rounded-xl border border-line px-5 py-3 text-sm font-semibold text-ink transition hover:bg-panel focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal">
               ← Back to task

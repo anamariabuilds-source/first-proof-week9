@@ -20,3 +20,9 @@ Fix: added a deterministic grounding guard. Any API response that mentions unsup
 ## Environment limitation
 
 A live Vercel URL was not available during this pass because no Vercel project or Git remote is configured. Browser screenshots and live-URL checks remain deployment tasks; local build and rule-level tests cover the core flow meanwhile.
+
+## Persona-test preparation
+
+- Added a neutral “Pause before deciding” cue beside the simulated AI output.
+- The cue focuses attention on evidentiary sufficiency without disclosing the missing field.
+- Kept the evidence-scope limitation high contrast and visible without expanding the product scope.

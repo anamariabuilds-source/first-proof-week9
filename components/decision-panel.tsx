@@ -39,7 +39,7 @@ export function DecisionPanel({ onSubmit, onBack }: DecisionPanelProps) {
       <div className="rounded-3xl border border-line bg-white p-5 shadow-card sm:p-8">
         <span className="rounded-full bg-teal-soft px-3 py-1 text-[11px] font-bold tracking-[0.14em] text-teal-dark">PARTICIPANT DECISION</span>
         <h1 className="mt-5 text-2xl font-semibold tracking-[-0.03em] text-ink sm:text-3xl">Do you have enough information to act?</h1>
-        <p className="mt-2 text-sm leading-6 text-muted">Choose the action you would take after reviewing the task and AI draft.</p>
+        <p className="mt-2 text-sm leading-6 text-muted">Choose the action you would take after reviewing the source information and AI draft.</p>
 
         <fieldset className="mt-7 space-y-3">
           <legend className="sr-only">Choose your next action</legend>
